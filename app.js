@@ -77,9 +77,9 @@ passport.use(
 // });
 console.log(passport);
 
-// app.get('/', function(req, res) {
-// 	res.render('Landing');
-// });
+app.get('/', function(req, res) {
+	res.render('homeFR.ejs');
+});
 
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
