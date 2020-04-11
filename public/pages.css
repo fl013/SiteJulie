@@ -1,0 +1,100 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+.fab {
+	font-size: 30px;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.social:hover {
+	opacity: 0.7;
+}
+
+nav a {
+	color: #80808c;
+}
+#navchange {
+	background-color: #1d1e22;
+	color: #80808c;
+	font-weight: 400;
+}
+
+.fa-facebook {
+	color: #3578e5;
+}
+
+#instagram {
+	width: 30px;
+	height: 30px;
+}
+
+.social {
+	width: 35px;
+	position: relative;
+	bottom: 3px;
+}
+
+.language {
+	width: 30px;
+	height: 30px;
+}
+
+.flag {
+	width: 42px;
+}
+
+.contact {
+	height: 40px;
+}
+
+#mainav {
+	width: 50%;
+	margin-left: auto;
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+.connerie {
+	width: 60%;
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	border: 30px solid #1d1e22;
+	color: #1d1e22;
+}
+
+footer {
+	text-align: right;
+	padding-right: 1%;
+	position: relative;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	color: #1d1e22;
+}
+
+footer a {
+	color: #1d1e22;
+	padding-left: 2%;
+}
+
+footer a:hover {
+	color: #1d1e22;
+}
+
+.login {
+	max-width: 50%;
+	color: white;
+}
+
+.bou {
+	display: block;
+	margin: auto;
+}
