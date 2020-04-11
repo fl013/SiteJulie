@@ -18,22 +18,23 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.Promise = global.Promise;
 
-const databaseUrl = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
+// const databaseUrl = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
 
+const databaseUrl = 'mongodb+srv://florian:IIjj206.@cluster0-tcar2.mongodb.net/test?retryWrites=true&w=majority';
 console.log(databaseUrl);
 mongoose
 	.connect(databaseUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => console.log(`Database connected`))
 	.catch((err) => console.log(`Database connection error: ${err.message}`));
 
-// User.create({ username: 'julie', password: 'admin6057' }, function(err, admin) {
-// 	if (err) {
-// 		console.log(err);
-// 	}
-// 	{
-// 		console.log(admin);
-// 	}
-// });
+User.create({ username: 'julie', password: 'admin6057' }, function(err, admin) {
+	if (err) {
+		console.log(err);
+	}
+	{
+		console.log(admin);
+	}
+});
 
 app.use(
 	require('express-session')({
