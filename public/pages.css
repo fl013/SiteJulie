@@ -1,5 +1,7 @@
 body {
-	background-color: black;
+	background-image: url("https://www.publicdomainpictures.net/pictures/170000/nahled/grunge-background-14635619239LT.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 	color: white;
 }
 
@@ -23,9 +25,9 @@ nav a {
 	font-weight: 400;
 }
 
-.fa-facebook {
+/* .fa-facebook {
 	color: #3578e5;
-}
+} */
 
 #instagram {
 	width: 30px;
@@ -36,6 +38,7 @@ nav a {
 	width: 35px;
 	position: relative;
 	bottom: 3px;
+	opacity: 0.5;
 }
 
 .language {
@@ -44,7 +47,8 @@ nav a {
 }
 
 .flag {
-	width: 42px;
+	font-weight: 500;
+	display: inline;
 }
 
 .contact {
@@ -90,11 +94,73 @@ footer a:hover {
 }
 
 .login {
-	max-width: 50%;
+	max-width: 30%;
 	color: white;
 }
 
 .bou {
 	display: block;
 	margin: auto;
+}
+
+/* //////////////////////////////////HEADER///////////////////////////////////////////////// */
+.active {
+	color: red;
+}
+.jakadi {
+	border-bottom: solid 1px #1d1e22;
+	border-right: solid 1px #1d1e22;
+}
+.jakadi:hover {
+	color: white;
+	border-radius: 0.2rem;
+	border-bottom: solid 1px #80808c;
+	border-right: solid 1px #80808c;
+
+	box-shadow: 1px 1px 0px #80808c;
+}
+/* ///////////////////////////////PHOTOS////////////////////////////////////////// */
+.mode {
+	background: rgb(15, 9, 135);
+	background: radial-gradient(circle, rgba(15, 9, 135, 1) 0%, rgba(0, 0, 0, 1) 80%);
+}
+.spectacle {
+	background: rgb(182, 5, 44);
+	background: radial-gradient(circle, rgba(182, 5, 44, 1) 0%, rgba(0, 0, 0, 1) 80%);
+}
+
+.perf {
+	background: rgb(191, 183, 13);
+	background: radial-gradient(circle, rgba(191, 183, 13, 1) 0%, rgba(0, 0, 0, 1) 80%);
+}
+
+.photos {
+	max-width: 85%;
+	height: auto;
+	box-shadow: 5px 5px 5px #252924;
+}
+
+.minheight {
+	min-height: 80vh;
+}
+
+/* //////////////////////////////VIDEO/////////////////////////////////// */
+hr {
+	border: solid 1px grey;
+	width: 50%;
+}
+
+.para {
+	font-size: 1rem;
+}
+
+.tvideo {
+	text-decoration: underline;
+	color: red;
+}
+
+/* ////////////////////////////////header///////////////////////////////////// */
+
+.contact {
+	font-weight: 500;
 }

@@ -1,3 +1,18 @@
 <%- include("partials/headerEN")%>
+<p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consequuntur porro veritatis ad nihil. Magni?</p>
+
+<% if(currentUser){ %>
+    <label for=""> Modifier le paragraphe</label>
+    <input id="inp" type="text" name="nouveauPara">
+    <button id="changement">Changer le texte</button>
+    <script>
+       
+        
+        $("#changement").on("click",function(){
+            $("#para").text($("#inp").val())
+        })
+    </script>
+<%}%>
+
 
 <%- include("partials/footer")%>

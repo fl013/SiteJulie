@@ -2,17 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  type="text/css" href="../landing.css">
-    <title>Julie Demont</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<link href="../jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
+	<link href="../landing.css" media="all" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="../jquery.mb.YTPlayer.js"></script>
+	<script src="../landingScript.js"></script>
+<script>
+var myPlayer;
+		jQuery(function () {
+		  myPlayer = jQuery("#bgndVideo").YTPlayer({useOnMobile:true, mobileFallbackImage:"assets/mask-4.png"});})
+
+</script>
+
 </head>
 <body>
-    
-        
-        <video autoplay muted loop id="videocont">
-            <source src="../medias/videos/landing.mp4" type="video/mp4">
-          </video>
-   <img src="../medias/photos/1.jpg" alt="">
-    
+	
+	<div id="bgndVideo" class="player" data-property="{videoURL:'https://youtu.be/gNKvDeo_uxo',showControls:0,containment:'body',useOnMobile:true,optimizeDisplay:true,ratio:'auto',autoPlay:true, mute:true, startAt:0, opacity:1}">My video</div>
+
+	<div class="titreprin text-center">
+	<a href="en/home">
+	<h1 id="landing">
+		Julie Demont
+	</h1>
+	</a>
+</div>
 </body>
 </html>

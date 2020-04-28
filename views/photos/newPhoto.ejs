@@ -1,0 +1,51 @@
+<%-include("../partials/headerEN")%>
+<a class="lienB" href="/en/photos"> 
+    Revenir à la page des photos
+    </a>
+
+<h1 class="text-center mt-3">AJOUTER UNE PHOTO !!</h1>
+
+<form action="/en/photos" method="POST">
+    <div class="container w-50 border mt-4">
+        <div class="form-group mt-4">
+            <label for="">Titre</label>
+            <input class="form-control" type="text" name="photo[title]" placeholder="Titre de la photo">
+        </div>
+        <div class="form-group">
+            <label for="">URL</label>
+            <input class="form-control" type="text" name="photo[url]" placeholder="URL de la photo">
+        </div>
+        <div class="form-group">
+            <label for="">ALT</label>
+            <input class="form-control" type="text" name="photo[alt]" placeholder="Ici une description de la photo pour les nons voyants">
+        </div>
+        <div class="form-group">
+            <label for="">Texte</label>
+            <textarea  class="form-control"  name="photo[text]" id="" cols="60" rows="10" placeholder="Ici tu ajoutes le texte que tu veux avec la photo"></textarea>
+        </div>
+        
+        <div class="text-center my-3 d-flex justify-content-around">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="photo[section]" id="inlineRadio1" value="Mode">
+                <label class="form-check-label" for="inlineRadio1">Mode</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="photo[section]" id="inlineRadio2" value="Spectacle">
+                <label class="form-check-label" for="inlineRadio2">Spectacle</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="photo[section]" id="inlineRadio3" value="Perf">
+                <label class="form-check-label" for="inlineRadio3">Perf</label>
+              </div>
+        </div>
+       
+
+          <button class="btn btn-success d-block mx-auto">
+            Ajouter une photo
+        </button>
+        </div>
+</form>
+<a class="lienB" href="/en/photos"> 
+    Revenir à la page des photos
+    </a>
+<%-include("../partials/footer")%>

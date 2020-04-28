@@ -8,14 +8,20 @@ const express = require('express'),
 	passportLocalMongoose = require('passport-local-mongoose'),
 	flash = require('connect-flash'),
 	User = require('./models/User'),
+	Photo = require('./models/photo'),
+	Video = require('./models/video'),
 	session = require('express-session'),
 	methodOverride = require('method-override'),
 	frenchRoutes = require('./routes/fr'),
-	englishRoutes = require('./routes/en');
+	englishRoutes = require('./routes/en'),
+	cookie = require('cookie');
 
+// response.cookie('same-site-cookie', 'foo', { sameSite: 'lax' });
+// response.cookie('cross-site-cookie', 'bar', { sameSite: 'none', secure: true });
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 mongoose.Promise = global.Promise;
 
 // const databaseUrl = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
@@ -27,15 +33,6 @@ mongoose
 	.then(() => console.log(`Database connected`))
 	.catch((err) => console.log(`Database connection error: ${err.message}`));
 
-User.create({ username: 'julie', password: 'admin6057' }, function(err, admin) {
-	if (err) {
-		console.log(err);
-	}
-	{
-		console.log(admin);
-	}
-});
-
 app.use(
 	require('express-session')({
 		secret: 'Once again Rusty wins cutest dog!',
@@ -43,6 +40,7 @@ app.use(
 		saveUninitialized: false
 	})
 );
+
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -75,14 +73,33 @@ passport.use(
 // 	res.locals.error = req.flash('error');
 // 	next();
 // });
-console.log(passport);
+
+// Photo.create(
+// 	{
+// 		title: 'photoTest',
+// 		url: 'https://i.ibb.co/R08d88w/FAUX-Q-TAROT-210220180524-copie.jpg',
+// 		alt: 'test',
+// 		text: 'plouf',
+// 		utilite: 'homePage'
+// 	},
+// 	function(err, photo) {
+// 		if (err) {
+// 			console.log(err);
+// 		}
+// 		{
+// 			console.log(photo);
+// 		}
+// 	}
+// );
 
 app.get('/', function(req, res) {
-	res.render('homeFR.ejs');
+	res.render('landing');
 });
 
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
+	res.locals.error = req.flash('error');
+	res.locals.success = req.flash('success');
 	next();
 });
 
@@ -93,11 +110,20 @@ app.get('/login', function(req, res) {
 app.post(
 	'/login',
 	passport.authenticate('local', {
-		successRedirect: '/en/news',
-		failureRedirect: '/login'
+		successRedirect: 'en/home',
+		failureRedirect: '/login',
+		successFlash: 'Log in correctly',
+		failureFlash: 'pas bon'
 	}),
 	function(req, res) {}
 );
+
+app.get('/logout', function(req, res) {
+	req.logout();
+	req.flash('success', 'Log out successful');
+	res.redirect('/en/home');
+});
+
 app.use('/fr', frenchRoutes);
 app.use('/en', englishRoutes);
 
