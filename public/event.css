@@ -1,0 +1,101 @@
+#ajout {
+	color: red;
+}
+
+/* /////////date//////////////// */
+
+.day {
+	font-size: 2rem;
+	font-weight: 500;
+}
+.year {
+	font-size: 1.2rem;
+}
+
+.contevent {
+	width: 95%;
+	margin-bottom: 3%;
+	opacity: 1;
+	background: #111845a6;
+	box-sizing: border-box;
+	font-size: 1.2rem;
+	box-shadow: 0 20px 50px rgb(23, 32, 90);
+	border: 2px solid #2a3cad;
+	color: #f0f1a1;
+}
+
+.contevent:hover {
+	box-shadow: 0 0 0.5px #fff, 0 0 1px #fff, 0 0 2px #fff, 0 0 4px #0ff, 0 0 8px #0ff, 0 0 9px #0ff, 0 0 10px #0ff,
+		0 0 15px #0ff;
+}
+.date {
+	height: 10%;
+	vertical-align: middle;
+	display: inline-block;
+	width: 15%;
+}
+
+.tit {
+	margin-left: 5%;
+	height: 10%;
+	vertical-align: middle;
+	display: inline-block;
+	width: 40%;
+}
+.lieux {
+	margin-left: 5%;
+	height: 10%;
+	vertical-align: middle;
+	display: inline-block;
+	width: 20%;
+	font-size: 2rem;
+}
+.text {
+	width: 80%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.lieux p {
+	margin: 0;
+}
+.lien {
+	height: 10%;
+	vertical-align: middle;
+	display: inline-block;
+	width: 10%;
+}
+
+.tiret {
+	font-size: 2rem;
+	vertical-align: middle;
+}
+.datediv {
+	vertical-align: middle;
+}
+
+h2 i {
+	font-size: 1.5rem;
+}
+
+.titreEvent {
+	font-size: 3rem;
+	vertical-align: middle;
+}
+
+.act {
+	display: none;
+}
+
+.titremax {
+	font-size: 4rem;
+	color: #f0f1a1;
+	text-decoration: underline;
+	font-weight: 100;
+	margin-top: 10vh;
+	margin-bottom: 10vh;
+}
+
+.lienEvent:hover {
+	color: #f0f1a1;
+}

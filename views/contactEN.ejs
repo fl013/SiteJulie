@@ -1,26 +1,86 @@
 <%- include("partials/headerEN")%>
+<script>
+    $("#contact").toggleClass("active")
+    $("#en").toggleClass("active")
+</script>
 
-<div class="jumbotron connerie text-center">
-    <div class="row">
-<div class="col-6">
-  
-   <img class="img-thumbnail" src="https://i.ibb.co/tBdRmT1/385-3858903-woman-dialing-a-number-on-an-old-school.png" alt=""> 
-</div>
+<!-- <div class="jumbotron container-fluid p-4 connerie text-center">
+    <div class="container-fluid">
+        <div class="row">
+                <div class="col-md">
+                    <img class="img-fluid mw-25" src="https://i.ibb.co/tBdRmT1/385-3858903-woman-dialing-a-number-on-an-old-school.png" alt=""> 
+                </div>
+                <div class="col-md text-wrap p-0 my-auto  mt-sm-4">
+                    <h1 class="mt-3 " id="h11">GET IN TOUCH BABY</h1>
+                    <br>  
+                    <br> 
+                    <div >
+                        
+                        <p><a target="_blank"  href="https://www.facebook.com/JulieCircusArstist/"><img src="https://img.icons8.com/cute-clipart/64/000000/facebook.png"/></a>   / <a target="_blank" href="https://www.instagram.com/juliedemont/?hl=fr"> <img src="https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"/></a></p>
+                    </div>
+                </div>
+        </div>
 
-    
-    <div class="col-6">
-        <h1>GET IN TOUCH BABY</h1>
-    
-        <p> Mail : <a href="mailto:juliedemon@hotmail.fr">juliedemont@hotmail.fr</a></p>
-        <p>Facekook :<a  href="https://www.facebook.com/JulieCircusArstist/"></a></p>
-        <p>Instagram :<a  href="https://www.instagram.com/juliedemont/?hl=fr"></a></p>
+
     </div>
+</div> -->
+
+
+
+
+      <div class="box container-fluid p-0">
+        <span></span>
+       
+        
+       
+        
+        <div class="content p-4">
+            <div class="row">
+
+                <div class="col-lg-7 order-lg-2">
+                    <form action="/en/contact" method="POST">
+                        
+                        <div class="container  border ">
+                            <h1 class="text-center">GET IN TOUCH BABY</h1>
+                            <div class="form-group mt-4">
+                                <label for="">Name :</label>
+                                <input class="form-control zoneText" type="text" name="nom" placeholder="First and last Name" >
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email :</label>
+                                <input class="form-control zoneText" type="email" name="email" placeholder="Give me your Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Message :</label>
+                                <textarea class="d-block texteArea" name="texte" id="" cols="80" rows="10" placeholder="Try to convince me ;)"></textarea>
+                            
+                            </div>
+                            
+                           
+                                    
+                            
+                    
+                            <button class="btn btn-danger d-block mx-auto bouttonMail">
+                                Send Email
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="my-4 my-lg-0 col-lg-5 order-lg-1">
+                    <img class="img-fluid mw-25" src="https://i.ibb.co/tBdRmT1/385-3858903-woman-dialing-a-number-on-an-old-school.png" alt=""> 
+                    <h2 class=" text-center mt-5" id="adresseEmail">  <a class="text-wrap contacts" href="mailto:juliedemon@hotmail.fr">juliedemont@hotmail.fr</a></h2>
+                    <p class="contacts text-center"><a target="_blank"  href="https://www.facebook.com/JulieCircusArstist/"><img src="https://img.icons8.com/bubbles/100/000000/facebook-f.png"/></a>   / <a target="_blank" href="https://www.instagram.com/juliedemont/?hl=fr"> <img src="https://img.icons8.com/bubbles/100/000000/instagram.png"/></a></p>
+                </div>
+                
+            </div>
+
+            
+        </div>
+        <span></span>
+      </div>
     
-</div>
-</div>
-
-
-
+ 
 
 
 <%- include("partials/footer")%>

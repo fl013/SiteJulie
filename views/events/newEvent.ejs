@@ -1,0 +1,61 @@
+<%-include("../partials/headerEN")%>
+
+<a class="lienB" href="/en/events"> 
+    Revenir à la page des events
+    </a>
+
+<h1 class="text-center mt-3">AJOUTER UN EVENT !!</h1>
+
+<form id="myform" action="/en/events" method="POST">
+    <div class="container w-50 border mt-4">
+        <div class="form-group mt-4">
+            <label for="">Titre</label>
+            <input class="form-control" type="text" name="event[title]" placeholder="Titre de l'event">
+        </div>
+        <div class="form-group">
+            <label for="">URL</label>
+            <input class="form-control" type="text" name="event[url]" placeholder="URL de l'event si tu veux mettre un lien vers un event">
+        </div>
+        <div class="form-group">
+            <label for="">Date début</label>
+            <input class="form-control" type="date" name="event[dateDebut]" placeholder="Date début de l'event" required>
+        </div>
+        <div class="form-group">
+            <label for="">Date fin</label>
+            <input class="form-control" type="date" name="event[dateFin]" placeholder="Date fin de l'event">
+        </div>
+        <div class="form-group">
+            <label for="">Texte</label>
+            <textarea  class="form-control"  name="event[text]" id="" cols="60" rows="10" placeholder="Description détaillé de l'event"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">lieu</label>
+            <input class="form-control" type="text" name="event[lieu]" placeholder="Lieu de l'event">
+        </div>
+        <div class="form-group">
+            <label for="">ville</label>
+            <input class="form-control" type="text" name="event[ville]" placeholder="ville de l'event">
+        </div>
+        
+        <div class="text-center my-3 d-flex justify-content-around">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input " type="radio" name="event[section]" id="inlineRadio1" required value="Past">
+                <label class="form-check-label" for="inlineRadio1">Past Event</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="event[section]" id="inlineRadio2" value="Incoming">
+                <label class="form-check-label" for="inlineRadio2">Incoming Event</label>
+              </div>
+              
+        </div>
+       
+
+          <button class="btn btn-success d-block mx-auto">
+            Ajouter un event
+        </button>
+        </div>
+</form>
+<a class="lienB" href="/en/events"> 
+    Revenir à la page des events
+    </a>
+<%-include("../partials/footer")%>

@@ -1,13 +1,29 @@
 <%- include("partials/headerEN")%>
 
+<script>
+    $("#home").toggleClass("active")
+    $("#en").toggleClass("active")
+</script>
+
 <% photoHome.forEach(function(photoHome){%>
-<div class="container w-100 ml-auto mr-auto mt-5">
+<div class="container-fluid w-100 ml-auto mr-auto mt-5">
     <div class="row">
-        <div class="col-3"></div>
-        <div class="col-3"><p id="homePara"><%=photoHome.text%>
+        <div class="col-6 ">
+        <div class="container-fluid">
+            <div class="row flex-column-reverse">
+                <div class=" w-100">
+                    <img class="img-fluid homeimg " src="https://i.ibb.co/6mrj4LN/escarpin-bout-ouvert-detail-coeur-talon-haut-nude-cosmopolitan-patricia-blanchet-3.jpg" alt="">
+                </div>
+                <div class=" w-100">
+                    <p id="homePara"><%=photoHome.text%> </p>
+                </div>
+                
+            </div>
+        </div>
+       
            </p></div>
         <div class="col-6">
-            <img src="<%=photoHome.url%>" alt="<%=photoHome.alt%>">
+            <img class="img-fluid homeimg float-right" src="<%=photoHome.url%>" alt="<%=photoHome.alt%>">
         </div>
     </div>
 </div>

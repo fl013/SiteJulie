@@ -1,3 +1,3 @@
-$(function() {
-	$('#landing').animate({ fontSize: '2.5rem', opacity: 1 }, 4000);
-});
+// $(function() {
+// 	$('#landing').animate({ fontSize: '3.5rem', opacity: 0.7 }, 4000);
+// });

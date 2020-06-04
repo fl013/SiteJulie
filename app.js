@@ -14,7 +14,10 @@ const express = require('express'),
 	methodOverride = require('method-override'),
 	frenchRoutes = require('./routes/fr'),
 	englishRoutes = require('./routes/en'),
-	cookie = require('cookie');
+	cookie = require('cookie'),
+	nodemailer = require('nodemailer');
+
+require('dotenv').config();
 
 // response.cookie('same-site-cookie', 'foo', { sameSite: 'lax' });
 // response.cookie('cross-site-cookie', 'bar', { sameSite: 'none', secure: true });
@@ -126,6 +129,29 @@ app.get('/logout', function(req, res) {
 
 app.use('/fr', frenchRoutes);
 app.use('/en', englishRoutes);
+
+// let transporter = nodemailer.createTransport({
+// 	service: 'gmail',
+// 	auth: {
+// 		user: process.env.EMAIL,
+// 		pass: process.env.PASSWORD
+// 	}
+// });
+
+// let mailOptions = {
+// 	from: 'nouveau.compte.flo@gmail.com',
+// 	to: 'florian.demont@outlook.com',
+// 	subject: 'seggue moi',
+// 	text: 'work'
+// };
+
+// transporter.sendMail(mailOptions, function(err, date) {
+// 	if (err) {
+// 		console.log('error', err);
+// 	} else {
+// 		console.log('email send!');
+// 	}
+// });
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

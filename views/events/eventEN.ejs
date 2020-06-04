@@ -1,0 +1,292 @@
+<%- include("../partials/headerEN")%>
+<script>
+    $("#news").toggleClass("active")
+    $("#en").toggleClass("active")
+</script>
+<%var taille=events.length%>
+
+<script>
+    
+   $(document).ready(function(){   
+    
+    $( ".plus" ).each(function( index ) {
+    $(this).click(function(){
+        
+       $(".text"+index).fadeToggle(600);
+       
+       
+    })
+ 
+});
+$( ".plus" ).each(function( index ) {
+    $(this).css('cursor','pointer')
+
+    })
+})
+
+</script>
+
+<div class="ml-3">
+<% if(currentUser) { %>
+    <h1 class="text-center mt-5 titremax">
+        <a id='ajout' href="/en/events/new">Ajouter un event </a>
+    </h1>
+
+<hr>
+<%}%>
+<h1 class="event titremax ">Incoming Event</h1>
+<% var i=0;%>
+
+<% events.forEach(function(event){ %>
+    
+    <%if(event.section==="Incoming") {%>
+        
+        
+   
+    
+        <%var day = event.dateDebut.getDate().toString()%>
+        <%var month=event.dateDebut.getMonth().toString()%>
+        <%var year = event.dateDebut.getFullYear().toString()%>
+         
+         <% switch (month) { 
+ 
+             case '0': month="jan"
+              break; 
+              case '1': month="fév"
+              break; 
+              case '2': month="mars"
+              break; 
+              case '3': month="avr"
+              break; 
+              case '4': month="mai"
+              break; 
+              case '5': month="juin"
+              break; 
+              case '6': month="juil"
+              break; 
+              case '7': month="août"
+              break; 
+              case '8': month="sept"
+              break; 
+              case '9': month="oct"
+              break; 
+              case '10': month="nov"
+              break; 
+              case '11': month="déc"
+              break; 
+ 
+         }%>
+         <% if (event.dateFin) { %>
+             <%var dayF = event.dateFin.getDate().toString()%>
+             <%var monthF=event.dateFin.getMonth().toString()%>
+             <%var yearF = event.dateFin.getFullYear().toString()%>
+             <% switch (monthF) { 
+      
+              case '0': monthF="jan"
+              break; 
+              case '1': monthF="fév"
+              break; 
+              case '2': monthF="mars"
+              break; 
+              case '3': monthF="avr"
+              break; 
+              case '4': monthF="mai"
+              break; 
+              case '5': monthF="juin"
+              break; 
+              case '6': monthF="juil"
+              break; 
+              case '7': monthF="août"
+              break; 
+              case '8': monthF="sept"
+              break; 
+              case '9': monthF="oct"
+              break; 
+              case '10': monthF="nov"
+              break; 
+              case '11': monthF="déc"
+              break; 
+          
+             
+          }%> 
+          <%}%>
+         
+         <div class="contevent plus">
+             <div class="date text-center">
+                 <div class="d-inline-block  datediv text-center">
+                 <p class="day d-inline"><%=day%></p> 
+                 <p class="day d-inline ml-2"><%=month%></p>
+                 <p class="year"><%=year%></p>
+                 </div>
+                 <% if (event.dateFin) { %>
+                     <p class="d-inline-block tiret mx-4">to</p>
+                         <div class="d-inline-block datediv  text-center">
+                         <p class="day d-inline"><%=dayF%></p> 
+                         <p class="day d-inline ml-2"><%=monthF%></p>
+                         <p class="year"><%=yearF%></p>
+                         </div>
+                         
+                     
+                  <%}%>
+             </div>
+             <div class="tit  my-auto"><h2 class="titreEvent my-auto d-inline"><%=event.title%><%=i%></h2>
+                
+                 </div>
+             <div class="lieux">
+                 <p><%=event.lieu%></p>
+                 <p><%=event.ville%></p>
+              </div>
+             <div class="lien ">
+                <h3 ><a class="lienEvent" href="<%=event.url%>">Voir Event</a></h3> 
+             </div>
+             <div class="text<%=i%> text act">
+                <hr>
+                <p ><%=event.text%></p>
+            </div>
+         </div> 
+         <% if(currentUser) { %>
+             <a href="/en/events/<%=event._id%>/edit">
+                 <button class="btn btn-info">
+                     Update event
+                 </button>
+             </a>
+             <form action="/en/events/<%=event.id%>?_method=DELETE" method="POST">
+                 <button class="btn btn-danger">
+                     Delete event
+                 </button>
+             </form>
+             <%}%>
+             <%i=i+1%>
+    <%}%>
+   
+<%})%>
+
+<h1 class="event titremax ">Past Event</h1>
+<% events.forEach(function(event){ %>
+    
+    <%if(event.section==="Past") {%>
+   
+    
+       
+       <%var day = event.dateDebut.getDate().toString()%>
+       <%var month=event.dateDebut.getMonth().toString()%>
+       <%var year = event.dateDebut.getFullYear().toString()%>
+        
+        <% switch (month) { 
+
+            case '0': month="jan"
+             break; 
+             case '1': month="fév"
+             break; 
+             case '2': month="mars"
+             break; 
+             case '3': month="avr"
+             break; 
+             case '4': month="mai"
+             break; 
+             case '5': month="juin"
+             break; 
+             case '6': month="juil"
+             break; 
+             case '7': month="août"
+             break; 
+             case '8': month="sept"
+             break; 
+             case '9': month="oct"
+             break; 
+             case '10': month="nov"
+             break; 
+             case '11': month="déc"
+             break; 
+
+        }%>
+        <% if (event.dateFin) { %>
+            <%var dayF = event.dateFin.getDate().toString()%>
+            <%var monthF=event.dateFin.getMonth().toString()%>
+            <%var yearF = event.dateFin.getFullYear().toString()%>
+            <% switch (monthF) { 
+     
+             case '0': monthF="jan"
+             break; 
+             case '1': monthF="fév"
+             break; 
+             case '2': monthF="mars"
+             break; 
+             case '3': monthF="avr"
+             break; 
+             case '4': monthF="mai"
+             break; 
+             case '5': monthF="juin"
+             break; 
+             case '6': monthF="juil"
+             break; 
+             case '7': monthF="août"
+             break; 
+             case '8': monthF="sept"
+             break; 
+             case '9': monthF="oct"
+             break; 
+             case '10': monthF="nov"
+             break; 
+             case '11': monthF="déc"
+             break; 
+         
+            
+         }%> 
+         <%}%>
+        
+        <div class="contevent plus">
+            <div class="date text-center">
+                <div class="d-inline-block  datediv text-center">
+                <p class="day d-inline"><%=day%></p> 
+                <p class="day d-inline ml-2"><%=month%></p>
+                <p class="year"><%=year%></p>
+                </div>
+                <% if (event.dateFin) { %>
+                    <p class="d-inline-block tiret mx-4">to</p>
+                        <div class="d-inline-block datediv  text-center">
+                        <p class="day d-inline"><%=dayF%></p> 
+                        <p class="day d-inline ml-2"><%=monthF%></p>
+                        <p class="year"><%=yearF%></p>
+                        </div>
+                        
+                    
+                 <%}%>
+            </div>
+            <!-- <i class="far fa-plus-square mr-3 "><i> -->
+            <div class="tit  my-auto"><h2 class="titreEvent my-auto d-inline"><%=event.title%></h2>
+                
+                </div>
+            <div class="lieux">
+                <p><%=event.lieu%></p>
+                <p><%=event.ville%></p>
+             </div>
+            <div class="lien ">
+               <h3 ><a class="lienEvent" href="<%=event.url%>">Voir Event</a></h3> 
+            </div>
+            <div class="text<%=i%> text act">
+                <hr>
+                <p ><%=event.text%></p>
+            </div>
+            
+        </div> 
+        <% if(currentUser) { %>
+            <a href="/en/events/<%=event._id%>/edit">
+                <button class="btn btn-info">
+                    Update event
+                </button>
+            </a>
+            <form action="/en/events/<%=event.id%>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">
+                    Delete event
+                </button>
+            </form>
+            <%}%>
+            <%i=i+1%>
+    <%}%>
+
+    
+    
+<%})%>
+</div>
+<%- include("../partials/footer")%>

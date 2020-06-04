@@ -1,0 +1,79 @@
+<%-include("../partials/headerEN")%>
+<script>
+    if($("#inlineRadio1").checked===true)
+    
+</script>
+<a class="lienB" href="/en/events"> 
+    Revenir à la page des events
+    </a>
+<h1 class="text-center mt-3">MODIFIER EVENT <%=event.title%> !!</h1>
+
+<form action="/en/events/<%=event._id%>?_method=PUT" method="POST">
+    <div class="container w-50 border mt-4">
+        <div class="form-group mt-4">
+            <label for="">Titre</label>
+            <input class="form-control" type="text" value="<%=event.title%>" name="event[title]" >
+        </div>
+        <div class="form-group">
+            <label for="">URL</label>
+            <input class="form-control" value="<%=event.url%>" type="text" name="event[url]" >
+        </div>
+        <div class="form-group">
+            <label for="">Date debut</label>
+            <input class="form-control" type="date" value="<%=event.dateDebut.getFullYear()%>-<%=event.dateDebut.getMonth().toString().length === 1 ? '0' + (event.dateDebut.getMonth() + 1).toString() : event.dateDebut.getMonth() + 1%>-<%=event.dateDebut.getDate().toString().length === 1 ? '0' + (event.dateDebut.getDate()).toString() : event.dateDebut.getDate()%>" type="text" name="event[dateDebut]" required >
+           
+               
+        </div>
+        <div class="form-group">
+            <label for="">Date fin</label>
+            <input class="form-control" type="date" value="<%if(event.dateFin){%><%=event.dateFin.getFullYear()%>-<%=event.dateFin.getMonth().toString().length === 1 ? '0' + (event.dateFin.getMonth() + 1).toString() : event.dateFin.getMonth() + 1%>-<%=event.dateFin.getDate().toString().length === 1 ? '0' + (event.dateFin.getDate()).toString() : event.dateFin.getDate()%><%}%>" type="text" name="event[dateFin]" >
+        </div>
+        <div class="form-group">
+            <label for="">Texte</label>
+            <textarea  class="form-control"  name="event[text]" id="" cols="60" rows="10"><%=event.text%></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">Lieu</label>
+            <input class="form-control" value="<%=event.lieu%>" type="text" name="event[lieu]" >
+        </div>
+        <div class="form-group">
+            <label for="">Ville</label>
+            <input class="form-control" value="<%=event.ville%>" type="text" name="event[ville]" >
+        </div>
+        <% if(event.section==="Past") { %>
+            <div class="text-center my-3 d-flex justify-content-around">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="event[section]" id="inlineRadio1" value="Past" checked>
+                    <label class="form-check-label" for="inlineRadio1">Past</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="event[section]" id="inlineRadio2" value="Incoming" >
+                    <label class="form-check-label" for="inlineRadio2">Incoming</label>
+                  </div>
+                  
+            </div>
+            <%} else if(event.section==="Incoming") {%>
+                <div class="text-center my-3 d-flex justify-content-around">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="event[section]" id="inlineRadio1" value="Past" >
+                        <label class="form-check-label" for="inlineRadio1">Past</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="event[section]" id="inlineRadio2" value="Incoming"checked >
+                        <label class="form-check-label" for="inlineRadio2">Incoming</label>
+                      </div>
+                </div>
+
+            <%}%>
+                
+        
+
+        <button class="btn btn-danger d-block mx-auto">
+            Update photo
+        </button>
+    </div>
+</form>
+<a class="lienB" href="/en/events"> 
+    Revenir à la page des events
+    </a>
+<%-include("../partials/footer")%>
