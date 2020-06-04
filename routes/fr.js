@@ -11,7 +11,7 @@ router.get('/cv', function(req, res) {
 	res.render('cv.ejs');
 });
 router.get('/photos', function(req, res) {
-	res.render('photosFR.ejs');
+	res.render('photos/photosFR.ejs');
 });
 router.get('/videos', function(req, res) {
 	res.render('videosFR.ejs');

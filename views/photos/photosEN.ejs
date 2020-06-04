@@ -26,6 +26,7 @@
 
 
 
+
 <% photos.forEach(function(photo) {%>
 
     <!-- <div class="row ml-5 justify-content-start"> -->
@@ -56,13 +57,13 @@
 <%var count = 1; %>
 
 <section class="spectacle">
-    <h1 class="text-center" >SPECTACLE</h1>
+    <!-- <h1 class="text-center" >SPECTACLE</h1> -->
     <div class="container-fluid justify-content-around">
         <div class="row">
             <%photos.forEach(function(photo) { %>
                 <%if(photo.section==="Spectacle"){%>
                 <%if(count===1) { %>
-                    <div class="col-md-6 col-lg-4 shadow-lg align-self-start minheight">
+                    <div class="col-md-6 col-lg-3 shadow-lg align-self-start minheight">
                         <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
                             <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
@@ -81,7 +82,7 @@
                     </div>
                     
                 <%} else{ %>
-                    <div class="col-md-6 col-lg-4 shadow-lg align-self-end ">
+                    <div class="col-md-6 col-lg-3 shadow-lg align-self-end ">
                         <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
                             <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
