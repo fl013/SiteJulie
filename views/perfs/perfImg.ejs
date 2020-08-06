@@ -1,0 +1,36 @@
+<%-include("../partials/headerEN")%>
+
+<% perf.imagePerf.forEach(function(image){%>
+   
+    <%=image%>
+    <img src="<%=image%>" alt="">
+    <form action="/en/performances/<%=perf._id%>/img?_method=PUT" method="POST">
+        <input  style="display: none;" class="form-control" type="text" value="<%=image%>" name="perf[imagePerf]" >
+        <button class="btn btn-danger d-block mx-auto">
+            Delete photo/vidéo
+         </button>
+    </form>
+ 
+   
+<%})%>
+
+<form action="/en/performances/<%=perf._id%>/img" method="POST">
+    <div class="container border mt-4">
+       
+        <div class="form-group">
+            <label for="">URL : Sur youtube  aller dans partager, puis intégrer, puis copier l'URL entre guillemets dans src=""</label>
+            <input class="form-control" type="text" name="perf[imagePerf]" >
+        </div>
+       
+        <button class="btn btn-danger d-block mx-auto">
+          Ajouter Photo/vidéo à la perf
+        </button>
+    </div>
+</form>
+
+<a class="lienB" href="/en/performances"> 
+    Revenir à la page des performances
+</a>
+    
+    <%-include("../partials/footer")%>
+    

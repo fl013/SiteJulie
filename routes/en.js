@@ -3,6 +3,7 @@ var router = express.Router();
 Photo = require('../models/photo');
 Video = require('../models/video');
 Event = require('../models/event');
+Perf = require('../models/perf');
 var middleware = require('../middleware');
 var { isLoggedIn } = middleware;
 const nodemailer = require('nodemailer');
@@ -26,7 +27,7 @@ router.put('/home', function(req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-			res.redirect('/en/home');
+			res.redirect('/en/about');
 		}
 	});
 });
@@ -36,9 +37,6 @@ router.get('/biographie', function(req, res) {
 });
 router.get('/cv', function(req, res) {
 	res.render('cv.ejs');
-});
-router.get('/performances', function(req, res) {
-	res.render('performancesEN.ejs');
 });
 
 ////////ROUTES AVEC MODIFICATION ////////////////////////////////////////////////////////////////////////////
@@ -217,6 +215,147 @@ router.delete('/photos/:id', isLoggedIn, function(req, res) {
 		{
 			req.flash('success', 'Photo supprimée');
 			res.redirect('/en/photos');
+		}
+	});
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////PERF/////////////////////////////////////////////////////////////////////////
+
+router.get('/performances', function(req, res) {
+	Perf.find({}, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		}
+		{
+			res.render('perfs/performancesEN.ejs', { perfs: perffound });
+		}
+	});
+});
+
+//////////////////////New///////////////////////////////////
+router.get('/perfs/new', isLoggedIn, function(req, res) {
+	res.render('perfs/newPerf.ejs');
+});
+
+router.post('/performances', isLoggedIn, function(req, res) {
+	Perf.create(req.body.perf, function(err, perf) {
+		if (err) {
+			console.log(err);
+		}
+		{
+			req.flash('success', 'Perf postée');
+			res.redirect('/en/performances');
+		}
+	});
+});
+/////////////////////UPDTATE/////////////////
+router.get('/performances/:id/edit', isLoggedIn, function(req, res) {
+	Perf.findById(req.params.id, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		}
+		{
+			res.render('perfs/editPerf.ejs', { perf: perffound });
+		}
+	});
+});
+
+router.get('/performances/:id', isLoggedIn, function(req, res) {
+	Perf.findById(req.params.id, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		}
+		{
+			res.render('perfs/showPerf.ejs', { perf: perffound });
+		}
+	});
+});
+router.get('/performances/:id/editImg', isLoggedIn, function(req, res) {
+	Perf.findById(req.params.id, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		}
+		{
+			res.render('perfs/perfImg.ejs', { perf: perffound });
+		}
+	});
+});
+
+router.put('/performances/:id', isLoggedIn, function(req, res) {
+	Perf.findByIdAndUpdate(req.params.id, req.body.perf, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		} else {
+			req.flash('success', 'Perf updated');
+			res.redirect('/en/performances');
+		}
+	});
+});
+
+router.post('/performances/:id/img', isLoggedIn, function(req, res) {
+	Perf.findById(req.params.id, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('1');
+			perffound.imagePerf.push(req.body.perf.imagePerf);
+			perffound.save();
+			req.flash('success', 'Perf updatede');
+			res.redirect('/en/performances/' + req.params.id + '/editImg');
+		}
+	});
+});
+router.put('/performances/:id/img', isLoggedIn, function(req, res) {
+	Perf.findById(req.params.id, function(err, perffound) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('1');
+			index = perffound.imagePerf.indexOf(req.body.perf.imagePerf);
+			console.log(index);
+			perffound.imagePerf.splice(index, 1);
+
+			perffound.save();
+			req.flash('success', 'Perf updatede');
+			res.redirect('/en/performances/' + req.params.id + '/editImg');
+		}
+	});
+});
+
+// router.put('/performances/:id', isLoggedIn, function(req, res) {
+// 	Perf.findByIdAndUpdate(req.params.id, function(err, perffound) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			console.log('1');
+// 			perffound.titre = req.body.perf.titre;
+// 			req.flash('success', 'Perf updated');
+// 			res.redirect('/en/performances');
+// 		}
+// 	});
+// });
+
+// router.put('/performances/:id', isLoggedIn, function(req, res) {
+// 	Perf.findById(req.params.id, function(err, perffound) {
+// 		if (err) {
+// 			console.log(err);
+// 		} else {
+// 			console.log('ok');
+// 			perffound.imagePerf.push(req.body.perf.imagePerf);
+// 			req.flash('success', 'Perf updated');
+// 			res.redirect('/en/performances');
+// 		}
+// 	});
+// });
+
+//////////////////DELETE///////////////////////////////////
+router.delete('/performances/:id', isLoggedIn, function(req, res) {
+	Perf.findByIdAndDelete(req.params.id, function(err, perf) {
+		if (err) {
+			console.log(err);
+		} else {
+			req.flash('success', 'perf supprimée');
+			res.redirect('/en/performances');
 		}
 	});
 });

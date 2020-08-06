@@ -11,18 +11,6 @@
 </h1>
 
 <%}%>
-<!-- <div class="text-center my-3">
-    <img id="un" class="imagechoix"src="https://i.pinimg.com/originals/dd/95/31/dd95313a7cb01d0750dd13eccc28d81f.png" alt="">
-    <h4 id="prem"class="d-inline mx-5">SPECTACLE</h4>
-    
-    <img id="dos"class="imagechoix imgc"src="https://i.pinimg.com/originals/dd/95/31/dd95313a7cb01d0750dd13eccc28d81f.png" alt="">
-   
-    <h4 id="deux"class="d-inline mx-5  py-5">MODE</h4>
-   
-    <img id="tres"class="imagechoix imgc "src="https://i.pinimg.com/originals/dd/95/31/dd95313a7cb01d0750dd13eccc28d81f.png" alt="">
-    <h4 id="trois"class="d-inline mx-5">PERFORMANCE</h4>
-</div> -->
-
 
 
 
@@ -56,17 +44,32 @@
 
 <%var count = 1; %>
 
-<section class="spectacle">
+<section class="spectacle mt-5 ">
     <!-- <h1 class="text-center" >SPECTACLE</h1> -->
-    <div class="container-fluid justify-content-around">
-        <div class="row">
+    
+        <div class="masonry my-5">
             <%photos.forEach(function(photo) { %>
                 <%if(photo.section==="Spectacle"){%>
                 <%if(count===1) { %>
-                    <div class="col-md-6 col-lg-3 shadow-lg align-self-start minheight">
-                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
-                            <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
-                        </a>
+
+                   
+
+                    
+
+                        <div class="grid">
+                            
+                                <img  id="photos" src="<%=photo.url%>">
+                               
+                          <div class="grid__body">
+                            <div class="relative">
+                                <a class="grid__link" href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>"></a>
+                              <h1 class="grid__title"><%=photo.title%></h1>
+                            </div>
+                           
+                          </div>
+                        
+                        </div>
+                       
                         <% if(currentUser) { %>
                             <a href="/en/photos/<%=photo._id%>/edit">
                                 <button class="btn btn-info">
@@ -79,12 +82,69 @@
                                 </button>
                             </form>
                             <%}%>
-                    </div>
+                        
+                        
+                    
+
+                    <!-- <div class="pair mt-4">
+                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>">
+                            <img class ="photos p-3 bg-white "  src="<%=photo.url%>" alt="">
+                        </a>
+
+                        <% if(currentUser) { %>
+                            <a href="/en/photos/<%=photo._id%>/edit">
+                                <button class="btn btn-info">
+                                    Update photo
+                                </button>
+                            </a>
+                            <form action="/en/photos/<%=photo.id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">
+                                    Delete la Photo
+                                </button>
+                            </form>
+                            <%}%>
+                    </div> -->
                     
                 <%} else{ %>
-                    <div class="col-md-6 col-lg-3 shadow-lg align-self-end ">
-                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
-                            <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
+
+                  
+                        <div class="grid">
+                           
+                            <img  src="<%=photo.url%>">
+                           
+                          <div class="grid__body">
+                            
+                            <div class="relative">
+                                <a class="grid__link" href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>"></a>
+                              <h1 class="grid__title"><%=photo.title%></h1>
+                              
+                            </div>
+                           
+                          </div>
+                      
+                        </div>
+
+                        <% if(currentUser) { %>
+                            <a href="/en/photos/<%=photo._id%>/edit">
+                                <button class="btn btn-info">
+                                    Update photo
+                                </button>
+                            </a>
+                            <form action="/en/photos/<%=photo.id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">
+                                    Delete la Photo
+                                </button>
+                            </form>
+                            <%}%>
+                       
+                        
+                    
+                    
+                    
+
+                    <!-- <div class="impair mt-4">
+                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>">
+                            <img class ="photos shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
                         <% if(currentUser) { %>
                             <a href="/en/photos/<%=photo._id%>/edit">
@@ -98,13 +158,13 @@
                                 </button>
                             </form>
                             <%}%>
-                    </div>
+                    </div> -->
                 <% } %>
                 <%count*=-1;   %>
                 <%}%>
             <%})%>
         </div>
-    </div>
+   
     
 </section>
 
@@ -116,8 +176,8 @@
                 <%if(photo.section==="Mode") {%>
                 <%if(count===1) { %>
                     <div class="col-md-6 col-lg-4 col-xl-3 shadow-lg align-self-start minheight">
-                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
-                            <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
+                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>">
+                            <img class ="img-fluid photos shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
                         <% if(currentUser) { %>
                             <a href="/en/photos/<%=photo._id%>/edit">
@@ -134,7 +194,7 @@
                     </div>
                 <%} else{ %>
                     <div class="col-md-6 col-lg-4 col-xl-3 shadow-lg align-self-end ">
-                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
+                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>">
                             <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
                         <% if(currentUser) { %>
@@ -167,7 +227,7 @@
                 <%if(photo.section==="Perf") {%>
                 <%if(count===1) { %>
                     <div class="col-md-6 col-lg-4 col-xl-3 shadow-lg align-self-start minheight">
-                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
+                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>">
                             <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
                         <% if(currentUser) { %>
@@ -185,7 +245,7 @@
                     </div>
                 <%} else{ %>
                     <div class="col-md-6 col-lg-4 col-xl-3 shadow-lg align-self-end ">
-                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="Caption #2">
+                        <a href="<%=photo.url%>" data-fancybox="gallery" data-caption="<%=photo.title%>">
                             <img class ="img-fluid photos my-5 shadow-lg p-3 bg-white"  src="<%=photo.url%>" alt="">
                         </a>
                         <% if(currentUser) { %>
@@ -210,25 +270,4 @@
     
 </section>
 
-<!-- <section class="mode">
-    <h1>Mode</h1>
-    <img class ="photos" src="https://i.ibb.co/XY7ymbm/1.jpg">
-    <img class ="photos" src="https://i.ibb.co/dDGksnN/2.jpg">
-    <img class ="photos" src="https://i.ibb.co/j8g3RbV/708-25445-05.jpg">
-    <img class ="photos" src="https://i.ibb.co/z7xCmkV/26803596-10215176354701407-1614287727-n.jpg">
-    <img class ="photos" src="https://i.ibb.co/WvZfFkJ/escarpin-bout-ouvert-cuir-jaune-talon-haut-bois-jamie-lee-patricia-blanchet-2.jpg">
-    <img class ="photos" src="https://i.ibb.co/6mrj4LN/escarpin-bout-ouvert-detail-coeur-talon-haut-nude-cosmopolitan-patricia-blanchet-3.jpg">
-    <img class ="photos" src="https://i.ibb.co/fQ8fm1B/escarpin-ouvert-daim-nude-vague-brodee-talon-haut-izu-patricia-blanchet-2.jpg">
-</section> -->
-
-
-<!-- <section class="perf">
-    <h1>Perf</h1>
-    <img class ="photos" src="https://i.ibb.co/1J44WFy/UK201707174922-Edit-5.jpg">
-    <img class ="photos" src="https://i.ibb.co/dgdyM7m/UK201802050144-Edit.jpg">
-    <img class ="photos" src="https://i.ibb.co/N3knwVk/UK201803080205-Edit.jpg">
-    <img class ="photos" src="https://i.ibb.co/4RN4msF/UK201803080232-2-Edit.jpg">
-    <img class ="photos" src="https://i.ibb.co/m5WNwbh/UK201803080440-Edit.jpg">
-    <img class ="photos" src="https://i.ibb.co/93GXFk7/UK201803080561-Edit.jpg">
-</section> -->
 <%- include("../partials/footer")%>

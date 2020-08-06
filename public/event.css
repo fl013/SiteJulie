@@ -21,7 +21,7 @@
 	font-size: 1.2rem;
 	box-shadow: 0 20px 50px rgb(23, 32, 90);
 	border: 2px solid #2a3cad;
-	color: #f0f1a1;
+	color: whitesmoke;
 }
 
 .contevent:hover {
@@ -89,7 +89,7 @@ h2 i {
 
 .titremax {
 	font-size: 4rem;
-	color: #f0f1a1;
+	color: whitesmoke;
 	text-decoration: underline;
 	font-weight: 100;
 	margin-top: 10vh;
@@ -97,5 +97,5 @@ h2 i {
 }
 
 .lienEvent:hover {
-	color: #f0f1a1;
+	color: whitesmoke;
 }

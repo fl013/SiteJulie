@@ -1,0 +1,153 @@
+<%- include("../partials/headerEN")%>
+<script>
+   $("#performances").toggleClass("active")
+    $("#en").toggleClass("active")
+</script>
+<% if(currentUser) { %>
+    <h1 class="text-center mb-5">
+        <a href="perfs/new"> Ajouter une perf!!</a>
+    </h1>
+    <%}%>
+    <% var i=1%>
+    <% var compt=1 %>
+    <% perfs.forEach(function(perf) {%>
+        <% if(i===1) { %>
+            <div class="row  my-5 ml-3 justify-content-between">
+                <div class="col-lg-7 col-xl-6 mb-3 ">
+                    
+                  <!-- <div class="embed-responsive embed-responsive-16by9 mb-4">
+
+                    <iframe class="embed-responsive-item" width="560" height="315" src="<%=perf.url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                  </div> -->
+                  <div class='galleryPerf mt-5'>
+
+
+                    <div  class="html5gallery" data-skin="gallery" data-width="480" data-height="272" display="none">
+                        <% perf.imagePerf.forEach(function(image) {%>
+                         <!-- Add Youtube video to Gallery -->
+                         <% var yimage = image%>
+                         <% if (image.includes("youtube")) { %>
+                           <% yimage = "http://img.youtube.com/vi/"+image.substr(2+image.indexOf("v="),11)+"/0.jpg" %>
+
+                         <% } %>
+                         
+                         <a href="<%=image%>"><img src="<%=yimage%>" alt=""></a>
+                         
+            
+                         <!-- Add Vimeo video to Gallery -->
+                         <% })%>
+                    </div>
+                    </div>
+                  
+                    
+                    <% if(currentUser) { %>
+                        <div class="mt-3 text-center">
+                            <a href="/en/performances/<%=perf._id%>/edit">
+                                <button class="btn btn-info">
+                                    Update Perf
+                                </button>
+                            </a>
+                           
+                            <form class="d-inline ml-2" action="/en/performances/<%=perf._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">
+                                    Delete Perf
+                                </button>
+                            </form>
+                            <a href="/en/performances/<%=perf._id%>/editImg">
+                                <button class="btn btn-info">
+                                    Modifier images/vidéos
+                                </button>
+                            </a>
+                    </div>
+                    
+                <%}%>
+                </div>
+                <div class="col-xl-5 col-lg-4 mr-5  ">
+                    <h1 class="tvideo"> <%=perf.titre%></h1>
+                    
+                    <p class="lead text-wrap mt-3"> <%=perf.text%></p>
+                    <a target="_blank"href="https://pdfhost.io/v/hEGCsNLMy_Attestation_de_deplacement_derogatoirepdf.pdf"> 
+                        <button class="btn btn-success downloadfiche">
+                          
+                             technical sheet 
+                        </button>  </a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            
+        <% if(compt!=perfs.length){ %>
+        <hr class="mb-5"> 
+        <% compt+=1 %> 
+        <% } %>
+
+        <%}%>
+        <% if(i===-1) { %>
+            
+            <div class="row  my-5 ml-3 justify-content-between">
+                <div class=" order-lg-2 col-lg-7 col-xl-6 mb-3 mr-4 ">
+                    <div class='gallery mt-5'>
+
+
+                        <div  class="html5gallery" data-skin="gallery" data-width="480" data-height="272" display="none">
+                            <% perf.imagePerf.forEach(function(image) {%>
+                             <!-- Add Youtube video to Gallery -->
+                             <a href="<%=image%>"><img src="<%=image%>" alt=""</a>
+                             
+                        
+                             <!-- Add Vimeo video to Gallery -->
+                             <% })%>
+                        </div>
+                        </div>
+                
+                    
+                    <% if(currentUser) { %>
+                        <div class="mt-3 text-center">
+                            <a href="/en/performances/<%=perf._id%>/edit">
+                                <button class="btn btn-info">
+                                    Update perf
+                                </button>
+                            </a>
+                            <form class="d-inline ml-2" action="/en/performances/<%=perf._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">
+                                    Delete Perf
+                                </button>
+                            </form>
+                    </div>
+                    
+                <%}%>
+                </div>
+                <div class=" order-lg-1 col-xl-5 col-lg-4   ">
+                    <h1 class="tvideo"> <%=perf.titre%></h1>
+                    
+                    <p class="lead text-wrap mt-3"> <%=perf.text%></p>
+                    <a  target="_blank"href="https://pdfhost.io/v/hEGCsNLMy_Attestation_de_deplacement_derogatoirepdf.pdf"> 
+                        <button class="btn btn-success downloadfiche">
+                          Technical sheet
+                         
+                        </button>  </a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+           
+         <% if(compt!=perfs.length) {%>
+        <hr class="d-block mb-5"> 
+        <% compt+=1 %> 
+        <% } %>
+
+       <% } %>
+
+       <% i=i*-1 %>
+
+    <%})%>
+
+   
+
+        
+    
+<%- include("../partials/footer")%>

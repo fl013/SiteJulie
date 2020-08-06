@@ -3,12 +3,25 @@
     $("#vide").toggleClass("active")
     $("#en").toggleClass("active")
 </script>
+<div class='gallery mt-5'>
+
+
+<div  class="html5gallery" data-skin="gallery" data-width="480" data-height="272" display="none">
+    <% videos.forEach(function(video) {%>
+     <!-- Add Youtube video to Gallery -->
+     <a href="<%=video.url%>"><img src="<%=video.alt%>" alt="<%=video.text%>"</a>
+     
+
+     <!-- Add Vimeo video to Gallery -->
+     <% })%>
+</div>
+</div>
 
 <% if(currentUser) { %>
     <a href="/en/videos/new">
         Nouvelle vidéo !
     </a>
-<%}%>
+
 <% var i=1%>
 <% var compt=1 %>
 <div class="container-fluid conteneurvideos mt-5  ">
@@ -105,7 +118,7 @@
        <% i=i*-1 %>
 
     <%})%>
-
+    <%}%>
    
 
   

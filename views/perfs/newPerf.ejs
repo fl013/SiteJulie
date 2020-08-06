@@ -1,0 +1,36 @@
+<%-include("../partials/headerEN")%>
+
+<a class="lienB" href="/en/performances"> 
+    Revenir à la page des perfs
+    </a>
+<h1 class="text-center mt-3">AJOUTER UNE PERF!!</h1>
+
+<form action="/en/performances" method="POST">
+    <div class="container border mt-4">
+        <div class="form-group mt-4">
+            <label for="">Titre</label>
+            <input class="form-control" type="text" name="perf[titre]" placeholder="Titre de la performance">
+        </div>
+        <div class="form-group">
+            <label for="">URL  Sur youtube : aller dans partager, puis intégrer, puis copier l'URL entre guillemets dans src=""</label>
+            <input class="form-control" type="text" name="perf[url]" placeholder="URL de la vidéo">
+        </div>
+        <div class="form-group">
+            <label for="">URL fiche technique</label>
+            <input class="form-control" type="text" name="perf[ficheUrl]" placeholder="Ici le lien de ton fichier PDF fiche technique">
+        </div>
+        <div class="form-group">
+            <label for="">Texte</label>
+            <textarea  class="form-control"  name="perf[text]" id="" cols="60" rows="10" placeholder="Ici tu ajoutes le texte que tu veux avec la perf"></textarea>
+        </div>
+        <button class="btn btn-success d-block mx-auto">
+            Ajouter une performance
+        </button>
+    </div>
+</form>
+
+<a class="lienB" href="/en/performances"> 
+Revenir à la page des performances
+</a>
+
+<%-include("../partials/footer")%>

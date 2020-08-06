@@ -113,7 +113,7 @@ app.get('/login', function(req, res) {
 app.post(
 	'/login',
 	passport.authenticate('local', {
-		successRedirect: 'en/home',
+		successRedirect: 'en/about',
 		failureRedirect: '/login',
 		successFlash: 'Log in correctly',
 		failureFlash: 'pas bon'
@@ -124,7 +124,7 @@ app.post(
 app.get('/logout', function(req, res) {
 	req.logout();
 	req.flash('success', 'Log out successful');
-	res.redirect('/en/home');
+	res.redirect('/en/about');
 });
 
 app.use('/fr', frenchRoutes);

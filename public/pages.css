@@ -1,12 +1,23 @@
 body {
-	background-image: url("https://image.freepik.com/free-photo/empty-wooden-table-with-colorful-smoke-float-up-dark-background_68495-150.jpg");
+	/* background-image: url("https://image.freepik.com/vecteurs-libre/fond-neon-rose_53876-91656.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
-
+	background-size: cover; */
+	/* background: linear-gradient(
+		179.5081790961479deg,
+		rgba(3, 5, 36, 1) 43.912000000000006%,
+		rgba(82, 6, 20, 1) 67.99600000000001%,
+		rgba(82, 6, 20, 1) 69.83200000000001%
+	); */
+	background: rgb(15, 9, 135);
+	background: radial-gradient(circle, rgba(15, 9, 135, 1) 0%, rgba(0, 0, 0, 1) 40%);
+	color: white;
+	/* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff,
+		0 0 150px #0ff; */
+	/* font-family: myFont; */
+	font-family: 'Roboto', sans-serif;
 	/* background: #4b0770;
-
 	background: radial-gradient(circle, rgba(3, 12, 91, 1) 0%, rgba(0, 0, 0, 1) 100%); */
-	font-family: 'Cormorant SC', serif;
+	/* font-family: 'Cormorant SC', serif; */
 	/* background: rgb(182, 5, 44);
 	background: radial-gradient(circle, rgba(182, 5, 44, 1) 0%, rgba(0, 0, 0, 1) 80%);  */
 }
@@ -17,6 +28,7 @@ body {
 	/* font-family: myFont2;
 	src: url(zombies.ttf); */
 }
+
 /* //////////////////////////////NAVBAR//////////////////////////////////////// */
 .navbar {
 	min-height: 3rem;
@@ -24,8 +36,8 @@ body {
 }
 
 .navbar a {
-	font-family: 'Cormorant SC', serif;
-	font-size: 1.2rem;
+	/* font-family: 'Cormorant SC', serif; */
+	font-size: 1.5rem;
 	color: #fff;
 	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 90px #0ff, 0 0 100px #0ff,
 		0 0 150px #0ff;
@@ -161,6 +173,9 @@ body {
 
 /* /////////////////////////////CONTACT//////////////////////////////////////////// */
 
+.imgtel {
+	max-width: 70%;
+}
 #adresseEmail {
 	color: #f0f1a1;
 }
@@ -199,7 +214,7 @@ body {
 
 	width: 90%;
 	height: 60%;
-	background: #111845a6;
+	/* background: #111845a6; */
 	box-sizing: border-box;
 	font-size: 1.2rem;
 	box-shadow: 0 20px 50px rgb(23, 32, 90);
@@ -287,9 +302,14 @@ footer a:hover {
 	margin: auto;
 }
 
-/* ///////////////////////////////PHOTOS////////////////////////////////////////// */
-
-/* //////////////////////////////VIDEO/////////////////////////////////// */
+/* ///////////////////////////////VIDEOS////////////////////////////////////////// */
+.gallery {
+	width: 60%;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+}
+/* //////////////////////////////PERFORMANCES/////////////////////////////////// */
 hr {
 	border: solid 1px grey;
 	width: 50%;
@@ -298,12 +318,32 @@ hr {
 .para {
 	font-size: 1rem;
 }
-
+.galleryPerf {
+	margin-left: auto;
+	margin-right: auto;
+}
 .tvideo {
 	text-decoration: underline;
-	color: red;
+	color: #2a3cad;
 }
-
+.downloadfiche {
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 20px 50px rgb(23, 32, 90);
+	border: 2px solid #2a3cad;
+	color: #f0f1a1;
+	background: #111845a6;
+	width: 50%;
+	height: 10%;
+	font-size: 1.5rem;
+}
+.downloadfiche:hover {
+	box-shadow: 0 0 0.5px #fff, 0 0 1px #fff, 0 0 2px #fff, 0 0 4px #0ff, 0 0 8px #0ff, 0 0 9px #0ff, 0 0 10px #0ff,
+		0 0 15px #0ff;
+	border: 2px solid #2a3cad;
+	color: #f0f1a1;
+	background: #111845a6;
+}
 /* body {
 	background-image: url(https://i.ibb.co/jHyg01M/new-nbgam5-c-scale-w-1400.png);
 	background-repeat: no-repeat;
