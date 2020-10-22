@@ -63,7 +63,7 @@ h4 {
 	margin-left: 4%;
 	margin-right: 4%;
 	columns: 5;
-	column-gap: 30px;
+	column-gap: 50px;
 }
 @media (max-width: 1200px) {
 	.masonry {
@@ -84,7 +84,7 @@ h4 {
 
 .masonry .grid {
 	display: inline-block;
-	margin-bottom: 30px;
+	margin-bottom: 70px;
 	position: relative
 	-webkit-transform: scale(1);
 	transform: scale(1);
